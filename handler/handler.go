@@ -25,7 +25,7 @@ func (h *handler) createUser(c echo.Context) error {
 }
 
 func (h *handler) getUser(c echo.Context) error {
-	email := c.Param("email2")
+	email := c.Param("email")
 	user := h.db[email]
 	if user == nil {
 		return echo.NewHTTPError(http.StatusNotFound, "user not found")
