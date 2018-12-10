@@ -4,3 +4,4 @@ go build
 ls -lah
 pwd
 git status
+printenv
