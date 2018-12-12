@@ -6,6 +6,9 @@ go:
 env:
   - GO111MODULE=on
 
+after_success:
+  - go build
+
 deploy:
   provider: script
   script: bash scripts/deploy.sh
