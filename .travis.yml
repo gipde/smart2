@@ -3,8 +3,19 @@ language: go
 go:
   - "1.11.x"
 
-deploy:
-provider: script
-script: bash scripts/deploy.sh
-on:
-  branch: master
+# deploy:
+# provider: script
+# script: bash scripts/deploy.sh
+# on:
+#   branch: master
+
+after_success:
+- echo "${SSH_KEY}" | base64 --decode >/tmp/ssh_rsa
+- scp -i /tmp/ssh_rsa smart2 werner@35.190.129.82:/home/werner/
+- shred /tmp/ssh_rsa
+
+# artefakt kopieren
+# dockerfile kopieren
+# docker build ausführen
+# alte docker instanz stoppen
+# neue docker instanz starten
