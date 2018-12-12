@@ -3,7 +3,7 @@
 echo "${SSH_KEY}" | base64 --decode >/tmp/ssh_rsa
 chmod 600 /tmp/ssh_rsa
 
-go build -o smart2
+CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o smart2
 
 ls -lah
 ls scripts -lah
