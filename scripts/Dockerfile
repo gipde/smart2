@@ -9,4 +9,4 @@ COPY smart2 .
 EXPOSE 1323
 
 # Run app.py when the container launches
-CMD smart2
+CMD ./smart2
