@@ -11,7 +11,8 @@ go:
 
 after_success:
 - echo "${SSH_KEY}" | base64 --decode >/tmp/ssh_rsa
-- scp -o "StrictHostKeyChecking=no" -i /tmp/ssh_rsa smart2 werner@35.190.129.82:/home/werner/
+- chmod 600 /tmp/ssh_rsa
+- scp -vvv -o "StrictHostKeyChecking=no" -i /tmp/ssh_rsa smart2 werner@35.190.129.82:/home/werner/
 - shred /tmp/ssh_rsa
 
 # artefakt kopieren
