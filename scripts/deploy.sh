@@ -3,6 +3,8 @@
 echo "${SSH_KEY}" | base64 --decode >/tmp/ssh_rsa
 chmod 600 /tmp/ssh_rsa
 
+go build
+
 ls -lah
 ls scripts -lah
 ls /tmp -lah
