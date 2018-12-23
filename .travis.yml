@@ -19,6 +19,6 @@ deploy:
     function_name: "lambda-test"
     region: "us-east-1"
     role: "arn:aws:iam::854014537498:role/lambda_basic_execution"
-    runtime: "go1.x"
+    runtime: "nodejs8.10"
     handler_name: "handler"
 
