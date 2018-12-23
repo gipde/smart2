@@ -10,9 +10,15 @@ after_success:
   - go build
 
 deploy:
-  skip_cleanup: true
-  provider: script
-  script: bash scripts/deploy.sh
-  on:
-    branch: master
+  - provider: script
+    skip_cleanup: true
+    script: bash scripts/deploy.sh
+    on:
+      branch: master
+  - provider: lambda
+    function_name: "lambda-test"
+    region: "us-east-1"
+    role: "arn:aws:iam::0123456789012:role/lambda_basic_execution"
+    runtime: "nodejs4.3"
+    handler_name: "handler"
 
